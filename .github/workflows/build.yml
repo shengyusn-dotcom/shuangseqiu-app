@@ -22,23 +22,16 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y git unzip openjdk-11-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev curl swig
         
-    - name: Install Buildozer and dependencies
+    - name: Install Buildozer
       run: |
-        pip install buildozer cython virtualenv
+        pip install buildozer cython
         
     - name: Build APK
       run: |
         buildozer -v android debug
         
-    - name: List built APK
-      run: |
-        ls -la bin/
-        
     - name: Upload APK
-      if: success()
       uses: actions/upload-artifact@v4
       with:
         name: shuangseqiu-apk
         path: bin/*.apk
-# In case of a bug report, please add a full log with log_level = 2
-Error: Process completed with exit code 1.
