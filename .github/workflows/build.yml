@@ -20,7 +20,7 @@ jobs:
     - name: Install system dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y git unzip openjdk-11-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev curl
+        sudo apt-get install -y git unzip openjdk-11-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev curl
         
     - name: Install Buildozer and dependencies
       run: |
@@ -31,6 +31,9 @@ jobs:
       run: |
         buildozer -v android clean
         buildozer -v android debug
+        
+    - name: List built APK
+      run: |
         ls -la bin/
         
     - name: Upload APK
