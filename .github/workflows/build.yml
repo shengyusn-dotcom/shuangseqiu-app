@@ -28,7 +28,7 @@ jobs:
         
     - name: Accept Android licenses
       run: |
-        yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
         
     - name: Build APK
       run: |
